@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand: #1DB886;
+  --color-brand-dark: #17A077;
+  --color-brand-darker: #128A63;
+  --color-brand-light: #E6F7F1;
+  --color-brand-lighter: #F0FBF6;
+  --color-brand-glow: rgba(29, 184, 134, 0.12);
+  --color-brand-glow-strong: rgba(29, 184, 134, 0.22);
+
+  --color-surface: #FFFFFF;
+  --color-surface-warm: #F8FAFB;
+  --color-surface-elevated: #F0F3F6;
+  --color-surface-dark: #0B1015;
+  --color-surface-dark-soft: #141E29;
+
+  --color-text-primary: #0B1015;
+  --color-text-secondary: #4A5568;
+  --color-text-tertiary: #8899A8;
+  --color-text-inverse: #FFFFFF;
+
+  --color-border: #E8EDF2;
+  --color-border-strong: #CBD5E0;
+
+  --color-danger: #DC2626;
+  --color-danger-soft: #FEF2F2;
+  --color-danger-muted: #F87171;
+
+  --font-sans: var(--font-baloo), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: var(--font-baloo), sans-serif;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.03);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.04);
+  --shadow-green: 0 8px 30px rgba(29, 184, 134, 0.22), 0 2px 8px rgba(29, 184, 134, 0.12);
+  --shadow-green-lg: 0 16px 48px rgba(29, 184, 134, 0.3), 0 4px 12px rgba(29, 184, 134, 0.15);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02);
+  --shadow-card-hover: 0 20px 48px rgba(0,0,0,0.08), 0 8px 20px rgba(29,184,134,0.06);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Reset & Base */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: white;
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border) 20%, var(--color-border) 80%, transparent);
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-brand), var(--color-brand-dark));
+  z-index: 1001;
+  transition: width 0.05s linear;
+}
+
+/* Grain texture */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  filter: url(#grain);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Client logo marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* WhatsApp pulse */
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35); }
+  50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35), 0 0 0 14px rgba(37, 211, 102, 0.06); }
+}
+
+/* Badge dot pulse */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+/* Float animation */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Icon glow pulse */
+@keyframes icon-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(29, 184, 134, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(29, 184, 134, 0.08); }
+}
+
+/* Spinner */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+  }
 }
