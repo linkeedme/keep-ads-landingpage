@@ -22,7 +22,7 @@ export function Footer() {
             alt="Keep Ads"
             width={180}
             height={54}
-            className="h-[38px] w-auto object-contain"
+            className="h-[48px] w-auto object-contain"
             loading="lazy"
           />
           <p className="text-sm text-text-tertiary leading-[1.5] max-w-[280px]">

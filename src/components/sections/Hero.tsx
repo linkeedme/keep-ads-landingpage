@@ -38,19 +38,6 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="max-lg:text-center"
         >
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="inline-flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.02em] text-brand-dark bg-brand-light px-5 py-2.5 rounded-full mb-7 border border-brand/15 shadow-sm"
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-50" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand" />
-            </span>
-            Aceitando novos parceiros
-          </motion.span>
-
           <h1 className="font-display font-bold text-[clamp(2.4rem,5.2vw,3.8rem)] leading-[1.08] tracking-[-0.025em] text-text-primary mb-6">
             Tráfego pago com{" "}
             <span className="text-brand relative inline-block">
@@ -84,7 +71,7 @@ export function Hero() {
             className="flex items-center gap-8 pt-9 border-t border-border max-lg:justify-center max-sm:flex-col max-sm:gap-5 max-sm:items-center"
           >
             {[
-              { target: 8, prefix: "+", suffix: "M", label: "investidos em anúncios" },
+              { target: 10, prefix: "+", suffix: "M", label: "investidos em anúncios" },
               { target: 60, prefix: "+", suffix: "", label: "empresas aceleradas" },
               { target: 4, prefix: "+", suffix: " anos", label: "de experiência em performance" },
             ].map((stat, i) => (

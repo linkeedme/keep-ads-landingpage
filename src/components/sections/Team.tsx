@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Linkedin } from "lucide-react";
+import { Linkedin, GraduationCap, CheckCircle2 } from "lucide-react";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
 
 export function Team() {
@@ -47,6 +47,37 @@ export function Team() {
             <p className="text-base text-white/72 leading-[1.7] mb-3">
               A Keep Ads nasceu de uma convicção simples: resultado de verdade não vem de apertar botões. Vem de cultura de dados, estudo constante e execução disciplinada.
             </p>
+
+            {/* Credentials */}
+            <div className="flex flex-wrap gap-3 mt-5 mb-4 max-lg:justify-center">
+              <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-brand bg-brand/15 px-4 py-2 rounded-full">
+                <GraduationCap size={15} />
+                Engenharia de Produção - UERJ
+              </span>
+              <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-brand bg-brand/15 px-4 py-2 rounded-full">
+                <GraduationCap size={15} />
+                MBA em Tráfego Pago
+              </span>
+            </div>
+
+            {/* Qualifications */}
+            <div className="mt-5 mb-6">
+              <h3 className="font-display font-bold text-white text-lg mb-3 max-lg:text-center">Qualificações do Time</h3>
+              <ul className="flex flex-col gap-2.5">
+                <li className="flex items-start gap-2.5 text-sm text-white/72">
+                  <CheckCircle2 size={18} className="text-brand shrink-0 mt-0.5" />
+                  <span><strong className="text-white/90">Pedro, COO</strong> - Engenheiro de formação, especialista em qualidade e processos</span>
+                </li>
+                <li className="flex items-start gap-2.5 text-sm text-white/72">
+                  <CheckCircle2 size={18} className="text-brand shrink-0 mt-0.5" />
+                  <span>Time certificado por <strong className="text-white/90">Pedro Sobral</strong>, maior referência em tráfego pago do Brasil</span>
+                </li>
+                <li className="flex items-start gap-2.5 text-sm text-white/72">
+                  <CheckCircle2 size={18} className="text-brand shrink-0 mt-0.5" />
+                  <span>Certificações oficiais <strong className="text-white/90">Google</strong> e <strong className="text-white/90">Meta</strong></span>
+                </li>
+              </ul>
+            </div>
 
             <div className="mt-7 rounded-[var(--radius-lg)] overflow-hidden border border-white/8">
               <Image

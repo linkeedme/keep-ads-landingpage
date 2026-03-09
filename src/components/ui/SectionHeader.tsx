@@ -43,7 +43,9 @@ export function SectionHeader({
         )}
       </h2>
       {description && (
-        <p className="text-[clamp(1rem,1.8vw,1.15rem)] text-text-secondary leading-[1.7] mt-3">
+        <p className={`text-[clamp(1rem,1.8vw,1.15rem)] leading-[1.7] mt-3 ${
+          dark ? "text-white/60" : "text-text-secondary"
+        }`}>
           {description}
         </p>
       )}

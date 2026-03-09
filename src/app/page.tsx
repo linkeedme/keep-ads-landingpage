@@ -12,6 +12,7 @@ import { Method } from "@/components/sections/Method";
 import { Differentials } from "@/components/sections/Differentials";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Team } from "@/components/sections/Team";
+import { Backstage } from "@/components/sections/Backstage";
 import { Instagram } from "@/components/sections/Instagram";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
@@ -31,6 +32,7 @@ export default function Home() {
         <Differentials />
         <Testimonials />
         <Team />
+        <Backstage />
         <Instagram />
         <FAQ />
         <Contact />

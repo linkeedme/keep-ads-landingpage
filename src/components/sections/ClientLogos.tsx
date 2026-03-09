@@ -3,13 +3,21 @@ import { Building2 } from "lucide-react";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
 
 const CLIENTS = [
+  { src: "/clients/soneda.webp", alt: "Soneda A Casa da Beleza", invert: false },
+  { src: "/clients/asserj.png", alt: "Asserj", invert: false },
   { src: "/clients/ROYAL SUPERMERCADOS.png", alt: "Royal Supermercados", invert: false },
-  { src: "/clients/SUPERACO.png", alt: "Super Aço Volta Redonda", invert: false },
+  { src: "/clients/galpao.webp", alt: "Galpão Casa e Construção", invert: true },
   { src: "/clients/povao.png", alt: "Drogarias Povão", invert: false },
-  { src: "/clients/VINCOL LOGO.png", alt: "Vincol", invert: true },
+  { src: "/clients/drogatur.png", alt: "Drogatur", invert: false },
+  { src: "/clients/logo-vovo-ana.png", alt: "Vovó Ana", invert: false },
+  { src: "/clients/occh_logo_black.webp", alt: "Occhialeria", invert: false },
   { src: "/clients/ZEN.png", alt: "Zen Cozinha Oriental", invert: true },
+  { src: "/clients/transmargoo-logo-300-1.png", alt: "Transmargo", invert: false },
+  { src: "/clients/zamix.png", alt: "Zamix", invert: false },
+  { src: "/clients/SUPERACO.png", alt: "Super Aço Volta Redonda", invert: false },
+  { src: "/clients/VINCOL LOGO.png", alt: "Vincol", invert: true },
+  { src: "/clients/2Logo-FarmaUSA.png.webp", alt: "FarmaUSA", invert: false },
   { src: "/clients/MORIA-MOVEIS.png", alt: "Mória Móveis", invert: true },
-  { src: "/clients/galpao.webp", alt: "Galpão", invert: true },
 ];
 
 export function ClientLogos() {
@@ -30,7 +38,7 @@ export function ClientLogos() {
 
             {/* Marquee */}
             <div className="overflow-hidden [mask:linear-gradient(90deg,transparent,black_6%,black_94%,transparent)] [-webkit-mask:linear-gradient(90deg,transparent,black_6%,black_94%,transparent)] hover:[&_.clients-track]:![animation-play-state:paused]">
-              <div className="clients-track flex items-center gap-16 w-max animate-[marquee_35s_linear_infinite] max-sm:gap-10 max-sm:animate-[marquee_22s_linear_infinite]">
+              <div className="clients-track flex items-center gap-16 w-max animate-[marquee_50s_linear_infinite] max-sm:gap-10 max-sm:animate-[marquee_35s_linear_infinite]">
                 {/* Double for seamless loop */}
                 {[...CLIENTS, ...CLIENTS].map((client, i) => (
                   <div
@@ -42,7 +50,7 @@ export function ClientLogos() {
                       alt={client.alt}
                       width={160}
                       height={44}
-                      className={`h-9 w-auto object-contain transition-all duration-400 hover:opacity-100 hover:scale-110 max-sm:h-7 ${
+                      className={`h-12 w-auto object-contain transition-all duration-400 hover:opacity-100 hover:scale-110 max-sm:h-8 ${
                         client.invert
                           ? "brightness-0 saturate-100 opacity-40 hover:opacity-70"
                           : "opacity-50 grayscale-[30%] hover:grayscale-0 hover:opacity-90"

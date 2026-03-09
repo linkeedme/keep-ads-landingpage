@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, ShoppingCart, Users } from "lucide-react";
+import { MapPin, ShoppingCart, Users, Stethoscope, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StaggerContainer, staggerItem } from "@/components/animations/StaggerContainer";
@@ -39,6 +39,28 @@ const AUDIENCES = [
       "Previsibilidade de resultado",
     ],
   },
+  {
+    number: "04",
+    icon: Stethoscope,
+    title: "Médicos e profissionais de saúde",
+    description: "Clínicas, consultórios e profissionais que querem lotar a agenda com pacientes certos.",
+    items: [
+      "Agenda cheia com pacientes qualificados",
+      "Posicionamento digital estratégico",
+      "Campanhas focadas na sua especialidade",
+    ],
+  },
+  {
+    number: "05",
+    icon: Sparkles,
+    title: "Influenciadores e criadores de conteúdo",
+    description: "Criadores que querem monetizar sua audiência e escalar seus resultados digitais.",
+    items: [
+      "Monetização inteligente da audiência",
+      "Funis de venda para infoprodutos",
+      "Escalar seguidores em clientes",
+    ],
+  },
 ];
 
 export function Audience() {
@@ -50,14 +72,12 @@ export function Audience() {
           title="Atendemos empresas que levam a sério"
           accentText="crescimento"
         />
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-md:[&>*:last-child]:col-span-1">
           {AUDIENCES.map((audience) => (
             <motion.div
               key={audience.number}
               variants={staggerItem}
-              className={`group bg-surface border border-border rounded-[var(--radius-lg)] p-[36px_30px] relative transition-all duration-400 ease-[var(--ease-out)] overflow-hidden hover:translate-y-[-6px] hover:shadow-[var(--shadow-card-hover)] hover:border-[rgba(29,184,134,0.2)] ${
-                audience.number === "03" ? "md:col-span-2 md:max-w-[420px] md:mx-auto lg:col-span-1 lg:max-w-none" : ""
-              }`}
+              className="group bg-surface border border-border rounded-[var(--radius-lg)] p-[36px_30px] relative transition-all duration-400 ease-[var(--ease-out)] overflow-hidden hover:translate-y-[-6px] hover:shadow-[var(--shadow-card-hover)] hover:border-[rgba(29,184,134,0.2)]"
             >
               {/* Large background number */}
               <span className="block font-display text-[5rem] font-extrabold leading-none text-surface-elevated absolute top-3 right-5 select-none transition-colors duration-400 ease-[var(--ease-out)] group-hover:text-[rgba(29,184,134,0.08)]">
