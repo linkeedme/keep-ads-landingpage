@@ -2,23 +2,44 @@ import Image from "next/image";
 import { Building2 } from "lucide-react";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
 
-const CLIENTS = [
+const CLIENTS_ROW_1 = [
   { src: "/clients/soneda.webp", alt: "Soneda A Casa da Beleza", invert: false },
-  { src: "/clients/asserj.png", alt: "Asserj", invert: false },
   { src: "/clients/ROYAL SUPERMERCADOS.png", alt: "Royal Supermercados", invert: false },
   { src: "/clients/galpao.webp", alt: "Galpão Casa e Construção", invert: true },
   { src: "/clients/povao.png", alt: "Drogarias Povão", invert: false },
-  { src: "/clients/drogatur.png", alt: "Drogatur", invert: false },
-  { src: "/clients/logo-vovo-ana.png", alt: "Vovó Ana", invert: false },
   { src: "/clients/occh_logo_black.webp", alt: "Occhialeria", invert: false },
   { src: "/clients/ZEN.png", alt: "Zen Cozinha Oriental", invert: true },
+  { src: "/clients/SUPERACO.png", alt: "Super Aço Volta Redonda", invert: false },
+];
+
+const CLIENTS_ROW_2 = [
+  { src: "/clients/asserj.png", alt: "Asserj", invert: false },
   { src: "/clients/transmargoo-logo-300-1.png", alt: "Transmargo", invert: false },
   { src: "/clients/zamix.png", alt: "Zamix", invert: false },
-  { src: "/clients/SUPERACO.png", alt: "Super Aço Volta Redonda", invert: false },
   { src: "/clients/VINCOL LOGO.png", alt: "Vincol", invert: true },
   { src: "/clients/2Logo-FarmaUSA.png.webp", alt: "FarmaUSA", invert: false },
   { src: "/clients/MORIA-MOVEIS.png", alt: "Mória Móveis", invert: true },
+  { src: "/clients/logo-vovo-ana.png", alt: "Vovó Ana", invert: false },
 ];
+
+function LogoImage({ client }: { client: { src: string; alt: string; invert: boolean } }) {
+  return (
+    <div className="shrink-0 flex items-center justify-center h-14 px-3 max-sm:h-10">
+      <Image
+        src={client.src}
+        alt={client.alt}
+        width={180}
+        height={56}
+        className={`h-14 w-auto object-contain transition-all duration-300 hover:scale-110 max-sm:h-10 ${
+          client.invert
+            ? "brightness-0 saturate-100 opacity-60 hover:opacity-90"
+            : "opacity-70 grayscale-[20%] hover:grayscale-0 hover:opacity-100"
+        }`}
+        loading="lazy"
+      />
+    </div>
+  );
+}
 
 export function ClientLogos() {
   return (
@@ -36,29 +57,24 @@ export function ClientLogos() {
               </p>
             </div>
 
-            {/* Marquee */}
-            <div className="overflow-hidden [mask:linear-gradient(90deg,transparent,black_6%,black_94%,transparent)] [-webkit-mask:linear-gradient(90deg,transparent,black_6%,black_94%,transparent)] hover:[&_.clients-track]:![animation-play-state:paused]">
-              <div className="clients-track flex items-center gap-16 w-max animate-[marquee_50s_linear_infinite] max-sm:gap-10 max-sm:animate-[marquee_35s_linear_infinite]">
-                {/* Double for seamless loop */}
-                {[...CLIENTS, ...CLIENTS].map((client, i) => (
-                  <div
-                    key={`${client.alt}-${i}`}
-                    className="shrink-0 flex items-center justify-center h-12 px-2"
-                  >
-                    <Image
-                      src={client.src}
-                      alt={client.alt}
-                      width={160}
-                      height={44}
-                      className={`h-12 w-auto object-contain transition-all duration-400 hover:opacity-100 hover:scale-110 max-sm:h-8 ${
-                        client.invert
-                          ? "brightness-0 saturate-100 opacity-40 hover:opacity-70"
-                          : "opacity-50 grayscale-[30%] hover:grayscale-0 hover:opacity-90"
-                      }`}
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
+            {/* Dual marquee rows */}
+            <div className="flex flex-col gap-6 hover:[&_.clients-track]:![animation-play-state:paused]">
+              {/* Row 1 - forward */}
+              <div className="overflow-hidden [mask:linear-gradient(90deg,transparent,black_4%,black_96%,transparent)] [-webkit-mask:linear-gradient(90deg,transparent,black_4%,black_96%,transparent)]">
+                <div className="clients-track flex items-center gap-14 w-max animate-[marquee_40s_linear_infinite] max-sm:gap-8 max-sm:animate-[marquee_28s_linear_infinite]">
+                  {[...CLIENTS_ROW_1, ...CLIENTS_ROW_1].map((client, i) => (
+                    <LogoImage key={`r1-${client.alt}-${i}`} client={client} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Row 2 - reverse direction */}
+              <div className="overflow-hidden [mask:linear-gradient(90deg,transparent,black_4%,black_96%,transparent)] [-webkit-mask:linear-gradient(90deg,transparent,black_4%,black_96%,transparent)]">
+                <div className="clients-track flex items-center gap-14 w-max animate-[marquee-reverse_44s_linear_infinite] max-sm:gap-8 max-sm:animate-[marquee-reverse_30s_linear_infinite]">
+                  {[...CLIENTS_ROW_2, ...CLIENTS_ROW_2].map((client, i) => (
+                    <LogoImage key={`r2-${client.alt}-${i}`} client={client} />
+                  ))}
+                </div>
               </div>
             </div>
 
