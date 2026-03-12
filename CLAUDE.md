@@ -8,19 +8,38 @@ Landing page for **Keep Ads**, a paid traffic (tráfego pago) agency based in Vo
 
 ## Architecture
 
-Static one-page site with three core files:
-- `index.html` — semantic HTML5 with 11 sections (hero, benefits, audience, methodology, cases, differentials, team, FAQ, contact form, WhatsApp float, footer)
-- `styles.css` — light mode design system using CSS custom properties, responsive at 1023px (tablet) and 767px (mobile)
-- `script.js` — vanilla JS using IntersectionObserver for scroll animations, FAQ accordion, stat counters, form validation, smooth scroll
+Next.js 16 app with Tailwind CSS v4, Framer Motion, and static export. Deployed via Vercel.
 
-No build tools, no frameworks, no package manager. Open `index.html` directly in a browser to preview.
+- `src/app/` — Next.js App Router (layout, page, globals.css)
+- `src/components/sections/` — page sections (Hero, Benefits, Audience, Method, ClientLogos, Differentials, Team, Backstage, Testimonials, FAQ, Contact, Instagram)
+- `src/components/layout/` — layout components (Navbar, Footer, ScrollProgress, BackToTop, WhatsAppFloat)
+- `src/components/ui/` — reusable UI (Button, SectionHeader)
+- `src/components/animations/` — animation utilities (RevealOnScroll, StaggerContainer, CounterAnimation)
+- `src/lib/constants.ts` — shared constants
+- `public/` — static assets (clients, photos, logos, fonts, icons, instagram)
+
+### Key Dependencies
+
+- **Next.js 16** with Turbopack
+- **Tailwind CSS v4** with `@theme inline` for design tokens
+- **Framer Motion** for scroll animations and stagger reveals
+- **Lucide React** for icons
+- **clsx + tailwind-merge** for className composition
+
+### Commands
+
+- `pnpm dev` — start dev server
+- `pnpm build` — production build (static export)
+- `pnpm start` — serve production build
 
 ## Design System
 
-- **Palette**: white background (#FFFFFF), warm off-white sections (#FAFBFC), brand green accent (#1DB886) with glow variants, dark team section (#0F1419)
-- **Typography**: Baloo 2 (display/headings, 700-800 weight, matches logo personality) + Source Sans 3 (body, 400-600 weight) via Google Fonts. Local font files also available in `Fontes/`
-- **Motion**: custom cubic-bezier curves (ease-out for deceleration, ease-spring for elastic bounce), IntersectionObserver reveal animations, floating card animations, CSS marquee for client logos
-- **Layout**: 1140px max container, CSS Grid for section layouts, clamp-based responsive sizing
+Defined in `src/app/globals.css` via `@theme inline`:
+
+- **Palette**: white surface (#FFFFFF), warm sections (#F8FAFB), brand green (#1DB886) with light/dark/glow variants, dark surface (#0B1015)
+- **Typography**: Baloo 2 (display/headings, 700-800 weight) + Source Sans 3 (body, 400-600 weight). Local font files in `public/fonts/`
+- **Motion**: ease-out `cubic-bezier(0.22, 1, 0.36, 1)`, ease-spring `cubic-bezier(0.34, 1.56, 0.64, 1)`. Framer Motion stagger reveals with IntersectionObserver viewport triggers.
+- **Layout**: 1140px max container, Tailwind responsive at md (768px) and lg (1024px), clamp-based sizing
 
 ## Key Brand Details
 
@@ -31,30 +50,25 @@ No build tools, no frameworks, no package manager. Open `index.html` directly in
 
 ## Asset Directories
 
-- `Logos/` — horizontal and vertical logo variants (PNG)
-- `Icone - K/` — K icon variants (PNG)
-- `fotos/` — hero image (Hero.webp), team/founder photos, background images
-- `clientes/` — client logos (Vincol, Royal Supermercados, Superaço, Zen, Mória Móveis, Galpão, Povão)
-- `Fontes/` — local font files (Baloo, Source Sans 3) — bundled but not currently used (Google Fonts preferred)
+All assets live in `public/`:
+- `public/logos/` — horizontal and vertical logo variants (PNG)
+- `public/icons/` — K icon variants (PNG)
+- `public/photos/` — hero image (Hero.webp), team/founder photos
+- `public/clients/` — 15 client logos (WebP/PNG)
+- `public/fonts/` — Baloo 2 (TTF) + Source Sans 3 (WOFF2)
+- `public/instagram/` — Instagram feed images
 
-## Specification Documents
+## Documentation
 
-- `PRD.md` — product requirements (personas, scope, functional requirements, success metrics)
-- `design.md` — visual design spec (grid, palette, typography, components, responsive behavior)
-- `COPYWRITE.md` — full copywriting content for all 9 sections
-- `LP KEEPADS.md` — competitive reference analysis with screenshots of other agency landing pages
+Project docs live in `docs/`:
+- `docs/PRD.md` — product requirements
+- `docs/design.md` — visual design spec
+- `docs/COPYWRITE.md` — copywriting content
+- `docs/LP KEEPADS.md` — competitive reference analysis
+- `docs/specs/` — feature specifications
 
-## Integration Points (Commented in Code)
+## Integration Points
 
-- **Meta Pixel**: `fbq()` initialization placeholder in HTML head
-- **Google Analytics 4**: `gtag()` configuration placeholder in HTML head
-- **Form webhook**: `fetch()` to `YOUR_WEBHOOK_URL` placeholder in script.js
-- **WhatsApp**: `wa.me` link with pre-filled message
-
-## Conventions
-
-- CSS uses `--` prefixed custom properties organized into: core palette, accent system, text hierarchy, layout tokens, motion specs
-- Scroll-triggered animations use `.reveal` class toggled to `.reveal.visible` via IntersectionObserver
-- FAQ uses max-height animation pattern with `.active` class and `aria-expanded` attributes
-- Navbar gets `.scrolled` class via scroll listener with requestAnimationFrame throttling
-- Form validation iterates `[required]` fields; success state swaps form visibility
+- **WhatsApp**: `wa.me` link with pre-filled message (WhatsAppFloat component)
+- **Form webhook**: placeholder URL in Contact component
+- **Meta Pixel / GA4**: to be configured in layout.tsx
