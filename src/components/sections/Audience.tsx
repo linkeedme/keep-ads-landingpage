@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, ShoppingCart, Users, Stethoscope, Sparkles, Building2, GraduationCap } from "lucide-react";
+import { MapPin, ShoppingCart, Stethoscope, Sparkles, Building2, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StaggerContainer, staggerItem } from "@/components/animations/StaggerContainer";
@@ -21,11 +21,7 @@ const AUDIENCES = [
     title: "Franquias e redes",
     description: "Múltiplas unidades com performance padronizada",
   },
-  {
-    icon: Users,
-    title: "Times de marketing",
-    description: "Squads internos que precisam de especialistas em mídia",
-  },
+
   {
     icon: Stethoscope,
     title: "Profissionais de saúde",
@@ -55,7 +51,7 @@ export function Audience() {
           accentText="pra você"
         />
 
-        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-sm:gap-3">
+        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-sm:gap-3">
           {AUDIENCES.map((audience) => {
             const Icon = audience.icon;
             return (
