@@ -50,7 +50,7 @@ export function Backstage() {
               <div className="relative aspect-[9/16] overflow-hidden">
                 <Image
                   src={reel.thumbnail}
-                  alt={reel.title}
+                  alt={`Vídeo bastidores: ${reel.title} - Keep Ads`}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"

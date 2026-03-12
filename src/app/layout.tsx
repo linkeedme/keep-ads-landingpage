@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   creator: "Keep Ads",
   publisher: "Keep Ads",
   icons: {
-    icon: "/icons/K - 1.png",
-    apple: "/icons/K - 1.png",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
   alternates: {
     canonical: SITE_URL,
@@ -72,8 +72,57 @@ export const metadata: Metadata = {
     "geo.placename": "Volta Redonda",
     "geo.position": "-22.5023;-44.1044",
     "ICBM": "-22.5023, -44.1044",
+    "theme-color": "#1DB886",
   },
 };
+
+function FAQPageJsonLd() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Qual investimento mínimo em mídia para tráfego pago?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Recomendamos um investimento mensal a partir de R$ 2.000,00 em tráfego pago para testar hipóteses de campanha de forma séria. Abaixo disso, é difícil gerar dados suficientes para otimização consistente.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Em quanto tempo verei resultados com tráfego pago?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "As primeiras semanas são de aprendizado e calibração. A partir de 60 a 90 dias, já é possível enxergar padrões claros de CPL, conversão e ROAS, ajustando orçamento e metas com muito mais segurança.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Vocês cuidam só dos anúncios?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Não. Atuamos desde a estratégia até a otimização de funil, criativos e landing pages, sempre conectados ao seu time de vendas/atendimento.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Tenho acesso aos dados das campanhas?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Sim. Toda campanha é criada em contas com acesso compartilhado, e você recebe relatórios mensais ou quinzenais com insights claros sobre o que está funcionando e o que vamos ajustar.",
+        },
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
 
 function LocalBusinessJsonLd() {
   const jsonLd = {
@@ -145,6 +194,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`scroll-smooth ${baloo.variable}`}>
       <head>
         <LocalBusinessJsonLd />
+        <FAQPageJsonLd />
       </head>
       <body className="antialiased">
         {/* SVG noise filter */}

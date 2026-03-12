@@ -84,7 +84,7 @@ export function Navbar() {
         >
           <Image
             src="/logos/header-logo.png"
-            alt="Keep Ads | Performance & Estratégia"
+            alt="Keep Ads - Agência de Tráfego Pago em Volta Redonda"
             width={240}
             height={72}
             className="h-14 w-auto object-contain max-sm:h-12"

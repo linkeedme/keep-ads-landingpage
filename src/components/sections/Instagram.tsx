@@ -30,7 +30,7 @@ export function Instagram() {
             <div className="w-14 h-14 rounded-full p-[3px] bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] shrink-0 shadow-[0_4px_16px_rgba(220,39,67,0.2)]">
               <Image
                 src="/icons/K - 1.png"
-                alt="Keep Ads"
+                alt="Logo Keep Ads - Perfil do Instagram"
                 width={50}
                 height={50}
                 className="w-full h-full rounded-full object-cover bg-surface border-2 border-surface"

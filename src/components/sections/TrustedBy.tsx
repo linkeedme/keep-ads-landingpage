@@ -42,7 +42,7 @@ export function TrustedBy() {
             >
               <Image
                 src={person.src}
-                alt={person.name}
+                alt={`${person.name} - Cliente da Keep Ads`}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 240px, 260px"

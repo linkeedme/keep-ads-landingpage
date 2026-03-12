@@ -19,7 +19,7 @@ export function Footer() {
         <div className="flex flex-col items-center gap-3">
           <Image
             src="/logos/header-logo.png"
-            alt="Keep Ads"
+            alt="Keep Ads - Agência de Tráfego Pago e Performance Digital"
             width={240}
             height={72}
             className="h-[60px] w-auto object-contain"
