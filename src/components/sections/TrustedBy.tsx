@@ -29,7 +29,7 @@ export function TrustedBy() {
       <div className="w-full max-w-[1140px] mx-auto px-6 relative z-[1]">
         <SectionHeader
           tag="Casos reais"
-          title="Quem já acelerou com a"
+          title="Quem acelera com a"
           accentText="Keep Ads"
         />
 
