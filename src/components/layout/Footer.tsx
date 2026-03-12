@@ -5,10 +5,10 @@ import { INSTAGRAM_URL } from "@/lib/constants";
 const FOOTER_LINKS = [
   { label: "Início", href: "#hero" },
   { label: "Método", href: "#metodo" },
+  { label: "Clientes", href: "#clientes-destaque" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Quem somos", href: "#time" },
   { label: "FAQ", href: "#faq" },
-  { label: "Contato", href: "#contato" },
 ];
 
 export function Footer() {
@@ -20,9 +20,9 @@ export function Footer() {
           <Image
             src="/logos/header-logo.png"
             alt="Keep Ads"
-            width={180}
-            height={54}
-            className="h-[48px] w-auto object-contain"
+            width={240}
+            height={72}
+            className="h-[60px] w-auto object-contain"
             loading="lazy"
           />
           <p className="text-sm text-text-tertiary leading-[1.5] max-w-[280px]">
@@ -60,6 +60,45 @@ export function Footer() {
         >
           <Instagram size={18} />
         </a>
+
+        {/* Certifications */}
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          <Image
+            src="/clients/GOOGLE-PARTNER.png"
+            alt="Google Partner"
+            width={160}
+            height={64}
+            className="h-10 w-auto object-contain opacity-60 grayscale-[30%] hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+            loading="lazy"
+          />
+          <Image
+            src="/clients/facebook_logo.png"
+            alt="Meta Business Partner"
+            width={140}
+            height={48}
+            className="h-8 w-auto object-contain opacity-60 grayscale-[30%] hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+            loading="lazy"
+          />
+          <Image
+            src="/clients/SUBIDOPRO.jpeg"
+            alt="Subido PRO"
+            width={140}
+            height={56}
+            className="h-9 w-auto object-contain opacity-60 grayscale-[30%] rounded-md hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+            loading="lazy"
+          />
+          <Image
+            src="/clients/ProjectBox-ClickUp-Badges-2-300x148.png"
+            alt="ClickUp Verified Consultant & Power User"
+            width={160}
+            height={80}
+            className="h-10 w-auto object-contain opacity-60 grayscale-[30%] hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+            loading="lazy"
+          />
+        </div>
+
+        {/* Divider */}
+        <div className="w-full max-w-[400px] h-[1px] bg-gradient-to-r from-transparent via-border to-transparent" />
 
         {/* Copyright */}
         <div className="flex flex-col gap-1">

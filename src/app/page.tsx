@@ -10,12 +10,16 @@ import { Benefits } from "@/components/sections/Benefits";
 import { Audience } from "@/components/sections/Audience";
 import { Method } from "@/components/sections/Method";
 import { Differentials } from "@/components/sections/Differentials";
+import { TrustedBy } from "@/components/sections/TrustedBy";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Team } from "@/components/sections/Team";
 import { Backstage } from "@/components/sections/Backstage";
 import { Instagram } from "@/components/sections/Instagram";
 import { FAQ } from "@/components/sections/FAQ";
-import { Contact } from "@/components/sections/Contact";
+
+function SectionDivider() {
+  return <div className="section-divider-shimmer" />;
+}
 
 export default function Home() {
   return (
@@ -26,16 +30,21 @@ export default function Home() {
       <main>
         <Hero />
         <ClientLogos />
+        <TrustedBy />
         <Benefits />
+        <SectionDivider />
         <Audience />
+        <SectionDivider />
         <Method />
+        <SectionDivider />
         <Differentials />
         <Testimonials />
         <Team />
-        <Backstage />
+        <SectionDivider />
         <Instagram />
+        <Backstage />
+        <SectionDivider />
         <FAQ />
-        <Contact />
       </main>
 
       <Footer />

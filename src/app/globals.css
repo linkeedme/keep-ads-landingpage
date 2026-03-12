@@ -36,8 +36,10 @@
   --shadow-xl: 0 20px 60px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.04);
   --shadow-green: 0 8px 30px rgba(29, 184, 134, 0.22), 0 2px 8px rgba(29, 184, 134, 0.12);
   --shadow-green-lg: 0 16px 48px rgba(29, 184, 134, 0.3), 0 4px 12px rgba(29, 184, 134, 0.15);
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02);
   --shadow-card-hover: 0 20px 48px rgba(0,0,0,0.08), 0 8px 20px rgba(29,184,134,0.06);
+  --shadow-card-premium: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02);
+  --shadow-card-premium-hover: 0 24px 56px rgba(0,0,0,0.10), 0 12px 24px rgba(29,184,134,0.08), 0 0 0 1px rgba(29,184,134,0.08);
 
   --radius-sm: 10px;
   --radius-md: 14px;
@@ -77,10 +79,39 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
-/* Section divider */
+/* Section divider — upgraded with gradient fade */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-border) 20%, var(--color-border) 80%, transparent);
+  background: linear-gradient(90deg, transparent, var(--color-border) 15%, var(--color-border-strong) 50%, var(--color-border) 85%, transparent);
+}
+
+/* ─── Section accent backgrounds (CSS-only, no images) ─── */
+
+/* Light section — soft green radial from top-right corner */
+.bg-accent-a {
+  background:
+    radial-gradient(ellipse 60% 50% at 90% 10%, rgba(29,184,134,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 90%, rgba(29,184,134,0.025) 0%, transparent 70%);
+}
+
+/* Light section — soft green radial from bottom-left */
+.bg-accent-b {
+  background:
+    radial-gradient(ellipse 50% 50% at 15% 80%, rgba(29,184,134,0.04) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 40% at 85% 20%, rgba(29,184,134,0.02) 0%, transparent 60%);
+}
+
+/* Light section — centered subtle glow */
+.bg-accent-c {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(29,184,134,0.03) 0%, transparent 70%);
+}
+
+/* Dark section — green glow accents on dark surface */
+.bg-accent-dark {
+  background:
+    radial-gradient(ellipse 50% 60% at 85% 15%, rgba(29,184,134,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 10% 85%, rgba(29,184,134,0.04) 0%, transparent 65%);
 }
 
 /* Scroll progress bar */
@@ -145,6 +176,19 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* Shimmer line for section dividers */
+@keyframes shimmer-line {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.section-divider-shimmer {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), var(--color-brand-glow), var(--color-border), transparent);
+  background-size: 200% 100%;
+  animation: shimmer-line 6s ease-in-out infinite;
 }
 
 /* Reduced motion */

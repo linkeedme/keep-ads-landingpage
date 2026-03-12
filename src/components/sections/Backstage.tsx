@@ -22,8 +22,10 @@ const REELS = [
 export function Backstage() {
   return (
     <section className="py-[clamp(80px,10vw,120px)] bg-surface-dark text-text-inverse relative overflow-hidden" id="bastidores">
-      {/* Decorative gradient */}
-      <div className="absolute top-[-20%] left-[-10%] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(29,184,134,0.06)_0%,transparent_70%)] pointer-events-none" />
+      {/* Background accent — different from Team section (#0B1015) */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 20% 80%, rgba(29,184,134,0.06) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 80% 20%, rgba(29,184,134,0.04) 0%, transparent 60%)" }} />
+      {/* Top separator gradient to distinguish from Team */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
 
       <div className="w-full max-w-[1140px] mx-auto px-6 relative z-[2]">
         <SectionHeader
@@ -42,7 +44,7 @@ export function Backstage() {
               href={reel.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block rounded-[var(--radius-lg)] overflow-hidden bg-surface-dark-soft border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-all duration-400 ease-[var(--ease-out)] hover:translate-y-[-6px] hover:shadow-[0_16px_48px_rgba(0,0,0,0.3)] hover:border-brand/20"
+              className="group relative block rounded-[var(--radius-lg)] overflow-hidden bg-surface-dark-soft border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-all duration-400 ease-[var(--ease-out)] hover:translate-y-[-6px] hover:shadow-[0_16px_48px_rgba(0,0,0,0.3),0_0_40px_rgba(29,184,134,0.12)] hover:border-brand/25"
             >
               {/* Thumbnail */}
               <div className="relative aspect-[9/16] overflow-hidden">

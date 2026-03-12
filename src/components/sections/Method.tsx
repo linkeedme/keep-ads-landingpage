@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Lightbulb, Layers, BarChart3, FileText, CheckCircle2, ArrowRight } from "lucide-react";
+import { Search, Lightbulb, Layers, BarChart3, FileText, CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
@@ -12,7 +12,6 @@ const STEPS = [
     color: "#1DB886",
     title: "Diagnóstico 360°",
     description: "Analisamos campanhas, criativos, funil, site, atendimento e números de vendas. Identificamos gargalos que fazem você perder dinheiro todos os dias.",
-    // Arc position (percentage)
     left: "4%",
     top: "68%",
   },
@@ -55,9 +54,17 @@ const STEPS = [
 ];
 
 const PAIN_POINTS = [
-  "Você investe em anúncios, mas não vê retorno real.",
+  "Investe em anúncios, mas não vê retorno real no caixa.",
   "Sente que está gastando dinheiro sem uma estratégia clara.",
   "Suas campanhas não trazem clientes qualificados.",
+  "Já trocou de agência mais de uma vez sem resultado.",
+];
+
+const RESULTS = [
+  "Previsibilidade de leads e vendas mês a mês",
+  "Clareza total sobre onde cada real está sendo investido",
+  "Campanhas que escalam sem queimar margem",
+  "Relatórios que sua diretoria quer ver",
 ];
 
 const staggerNode = {
@@ -88,8 +95,11 @@ const pathDraw = {
 
 export function Method() {
   return (
-    <section className="py-[clamp(80px,10vw,120px)] bg-surface-warm" id="metodo">
-      <div className="w-full max-w-[1140px] mx-auto px-6">
+    <section className="py-[clamp(80px,10vw,120px)] bg-surface-warm relative overflow-hidden" id="metodo">
+      {/* Background accent */}
+      <div className="absolute inset-0 bg-accent-a pointer-events-none" />
+
+      <div className="w-full max-w-[1140px] mx-auto px-6 relative z-[1]">
         <SectionHeader
           tag="Passo a passo"
           title="Como funciona a"
@@ -206,42 +216,68 @@ export function Method() {
           ))}
         </div>
 
-        {/* ===== "SE HOJE ESSA É A SUA REALIDADE..." ===== */}
+        {/* ===== CTA: PAIN POINTS vs RESULTS ===== */}
         <RevealOnScroll className="mt-16 max-sm:mt-10">
-          <div className="bg-surface border border-border rounded-[var(--radius-xl)] overflow-hidden shadow-[var(--shadow-card-hover)] relative">
+          <div className="bg-surface border border-border rounded-[var(--radius-xl)] overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.07),0_8px_24px_rgba(0,0,0,0.03)] relative">
             {/* Top accent */}
             <div className="h-[3px] bg-gradient-to-r from-brand via-brand-dark to-brand" />
 
             <div className="p-10 max-sm:p-6">
-              {/* Header row */}
-              <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 items-start mb-8 max-sm:mb-6">
-                <h3 className="font-display font-bold text-[clamp(1.5rem,3vw,2rem)] leading-[1.2] text-text-primary">
-                  Se hoje essa é a sua realidade...
-                </h3>
-                <div className="flex flex-col gap-3">
-                  {PAIN_POINTS.map((point) => (
-                    <div key={point} className="flex items-start gap-3">
-                      <CheckCircle2
-                        size={22}
-                        className="text-brand shrink-0 mt-0.5"
-                        strokeWidth={2}
-                      />
-                      <span className="text-[15px] text-text-secondary leading-[1.5]">
-                        {point}
-                      </span>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                {/* Pain points (left) */}
+                <div>
+                  <div className="flex items-center gap-2.5 mb-4">
+                    <div className="w-8 h-8 rounded-lg bg-danger-soft flex items-center justify-center">
+                      <AlertTriangle size={16} className="text-danger" />
                     </div>
-                  ))}
+                    <h3 className="font-display font-bold text-[1.15rem] text-text-primary">
+                      Se essa é a sua realidade...
+                    </h3>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    {PAIN_POINTS.map((point) => (
+                      <div key={point} className="flex items-start gap-3 text-[15px] text-text-secondary leading-[1.5]">
+                        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-danger-soft shrink-0 mt-0.5">
+                          <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
+                            <path d="M2 2l6 6M8 2l-6 6" stroke="#DC2626" strokeWidth="1.8" strokeLinecap="round" />
+                          </svg>
+                        </span>
+                        {point}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Results (right) */}
+                <div>
+                  <div className="flex items-center gap-2.5 mb-4">
+                    <div className="w-8 h-8 rounded-lg bg-brand-light flex items-center justify-center">
+                      <CheckCircle2 size={16} className="text-brand" />
+                    </div>
+                    <h3 className="font-display font-bold text-[1.15rem] text-text-primary">
+                      ...o cenário pode mudar:
+                    </h3>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    {RESULTS.map((result) => (
+                      <div key={result} className="flex items-start gap-3 text-[15px] text-text-secondary leading-[1.5]">
+                        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-light shrink-0 mt-0.5">
+                          <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
+                            <path d="M2.5 6L5 8.5L9.5 3.5" stroke="#1DB886" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                        {result}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* Divider */}
-              <div className="h-[1px] bg-gradient-to-r from-transparent via-border to-transparent mb-8 max-sm:mb-6" />
+              <div className="h-[1px] bg-gradient-to-r from-transparent via-border to-transparent my-8 max-sm:my-6" />
 
-              {/* CTA area */}
+              {/* CTA */}
               <div className="text-center">
-                <p className="font-display font-bold text-[1.1rem] text-brand mb-2 italic">
-                  Saiba que o cenário pode ser diferente!
-                </p>
                 <p className="text-[15px] text-text-secondary leading-[1.65] max-w-[540px] mx-auto mb-6">
                   Desperdiçar investimento com estratégias ineficazes não é uma opção.
                   Seus anúncios devem ser ativos reais para o crescimento da sua empresa.

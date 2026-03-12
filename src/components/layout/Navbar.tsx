@@ -6,9 +6,9 @@ import Image from "next/image";
 
 const NAV_ITEMS = [
   { label: "Método", href: "#metodo" },
+  { label: "Clientes", href: "#clientes-destaque" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Quem somos", href: "#time" },
-  { label: "FAQ", href: "#faq" },
 ];
 
 export function Navbar() {
@@ -85,9 +85,9 @@ export function Navbar() {
           <Image
             src="/logos/header-logo.png"
             alt="Keep Ads | Performance & Estratégia"
-            width={200}
-            height={60}
-            className="h-11 w-auto object-contain"
+            width={240}
+            height={72}
+            className="h-14 w-auto object-contain max-sm:h-12"
             priority
           />
         </a>

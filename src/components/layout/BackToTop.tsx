@@ -26,7 +26,7 @@ export function BackToTop() {
 
   return (
     <button
-      className={`fixed bottom-24 right-6 z-[998] flex items-center justify-center w-11 h-11 rounded-full bg-brand text-white shadow-[var(--shadow-green)] transition-all duration-300 ease-[var(--ease-out)] hover:bg-brand-dark hover:translate-y-[-2px] hover:shadow-[var(--shadow-green-lg)] focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-[3px] max-sm:bottom-20 max-sm:right-4 max-sm:w-10 max-sm:h-10 ${
+      className={`fixed bottom-24 left-6 z-[998] flex items-center justify-center w-11 h-11 rounded-full bg-brand text-white shadow-[var(--shadow-green)] transition-all duration-300 ease-[var(--ease-out)] hover:bg-brand-dark hover:translate-y-[-2px] hover:shadow-[var(--shadow-green-lg)] focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-[3px] max-sm:bottom-20 max-sm:left-4 max-sm:w-10 max-sm:h-10 ${
         visible
           ? "opacity-100 visible translate-y-0"
           : "opacity-0 invisible translate-y-3"

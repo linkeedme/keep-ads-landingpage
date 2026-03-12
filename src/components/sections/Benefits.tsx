@@ -1,28 +1,28 @@
 "use client";
 
-import { Settings, Activity, PieChart, Zap } from "lucide-react";
+import { Crosshair, GitMerge, BarChart3, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StaggerContainer, staggerItem } from "@/components/animations/StaggerContainer";
 
 const BENEFITS = [
   {
-    icon: Settings,
+    icon: Crosshair,
     title: "Segmentação cirúrgica",
     description: "Mais clientes certos, menos curiosos. Suas campanhas alcançam quem realmente tem intenção de compra.",
   },
   {
-    icon: Activity,
+    icon: GitMerge,
     title: "Funil alinhado de ponta a ponta",
     description: "Mídia, copy, landing page e atendimento trabalhando em conjunto. Nada de anúncios soltos.",
   },
   {
-    icon: PieChart,
+    icon: BarChart3,
     title: "Relatórios que falam a língua do caixa",
     description: "Nada de métricas de vaidade. Você vê investimento, leads, vendas, faturamento e lucro.",
   },
   {
-    icon: Zap,
+    icon: Trophy,
     title: "Obsessão por performance",
     description: "Time em constante treinamento, imersões e contato com Meta, Google e TikTok. Resultado, não likes.",
   },
@@ -30,8 +30,10 @@ const BENEFITS = [
 
 export function Benefits() {
   return (
-    <section className="py-[clamp(80px,10vw,120px)] bg-surface-warm" id="beneficios">
-      <div className="w-full max-w-[1140px] mx-auto px-6">
+    <section className="py-[clamp(80px,10vw,120px)] bg-surface-warm relative overflow-hidden" id="beneficios">
+      {/* Background accent */}
+      <div className="absolute inset-0 bg-accent-a pointer-events-none" />
+      <div className="w-full max-w-[1140px] mx-auto px-6 relative z-[1]">
         <SectionHeader
           tag="Por que a Keep Ads"
           title="Crescimento previsível não nasce da sorte."
@@ -43,7 +45,7 @@ export function Benefits() {
             <motion.div
               key={benefit.title}
               variants={staggerItem}
-              className="group bg-surface border border-border rounded-[var(--radius-lg)] p-[36px_28px] transition-all duration-400 ease-[var(--ease-out)] relative overflow-hidden hover:border-[rgba(29,184,134,0.3)] hover:translate-y-[-6px] hover:shadow-[var(--shadow-card-hover)]"
+              className="group bg-surface border border-border rounded-[var(--radius-lg)] p-[36px_28px] transition-all duration-400 ease-[var(--ease-out)] relative overflow-hidden shadow-[var(--shadow-card-premium)] hover:border-[rgba(29,184,134,0.3)] hover:translate-y-[-6px] hover:shadow-[var(--shadow-card-premium-hover)]"
             >
               {/* Top accent bar */}
               <span className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand to-brand-dark translate-x-[-101%] transition-transform duration-500 ease-[var(--ease-out)] group-hover:translate-x-0" />

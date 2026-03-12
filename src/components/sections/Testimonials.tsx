@@ -25,8 +25,10 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   return (
-    <section className="py-[clamp(80px,10vw,120px)] bg-surface-warm" id="depoimentos">
-      <div className="w-full max-w-[1140px] mx-auto px-6">
+    <section className="py-[clamp(80px,10vw,120px)] bg-surface-warm relative overflow-hidden" id="depoimentos">
+      {/* Background accent */}
+      <div className="absolute inset-0 bg-accent-c pointer-events-none" />
+      <div className="w-full max-w-[1140px] mx-auto px-6 relative z-[1]">
         <SectionHeader
           tag="Depoimentos"
           title="Quem vive os resultados,"
@@ -37,7 +39,7 @@ export function Testimonials() {
             <motion.div
               key={testimonial.videoId}
               variants={staggerItem}
-              className="group bg-surface rounded-[var(--radius-lg)] overflow-hidden border border-border transition-all duration-400 ease-[var(--ease-out)] hover:translate-y-[-4px] hover:shadow-[var(--shadow-card-hover)] max-lg:scroll-snap-align-start"
+              className="group bg-surface rounded-[var(--radius-lg)] overflow-hidden border border-border shadow-[var(--shadow-card-premium)] transition-all duration-400 ease-[var(--ease-out)] hover:translate-y-[-4px] hover:shadow-[var(--shadow-card-premium-hover)] max-lg:scroll-snap-align-start"
             >
               {/* 9:16 video container */}
               <div className="relative w-full pb-[177.78%] bg-surface-dark overflow-hidden">
