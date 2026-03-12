@@ -68,16 +68,16 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex items-center gap-8 pt-9 border-t border-border max-lg:justify-center max-sm:flex-col max-sm:gap-0 max-sm:items-center"
+            className="flex items-center gap-8 pt-9 border-t border-border max-lg:justify-center max-sm:flex-col max-sm:gap-5 max-sm:items-center"
           >
             {[
               { target: 10, prefix: "+", suffix: "M", label: "investidos em anúncios" },
               { target: 60, prefix: "+", suffix: "", label: "empresas aceleradas" },
               { target: 4, prefix: "+", suffix: " anos", label: "de experiência em performance" },
             ].map((stat, i) => (
-              <div key={stat.label} className="flex flex-col items-center max-sm:w-full">
-                {i > 0 && <div className="w-px h-12 bg-gradient-to-b from-transparent via-border to-transparent shrink-0 max-sm:w-16 max-sm:h-px max-sm:bg-gradient-to-r max-sm:my-5" />}
-                <div className="text-center">
+              <div key={stat.label} className="flex items-center gap-8 max-sm:flex-col max-sm:gap-5 max-sm:w-full">
+                {i > 0 && <div className="w-px h-12 bg-gradient-to-b from-transparent via-border to-transparent shrink-0 max-sm:w-16 max-sm:h-px max-sm:bg-gradient-to-r" />}
+                <div className="max-sm:text-center">
                   <CounterAnimation
                     target={stat.target}
                     prefix={stat.prefix}
