@@ -9,13 +9,13 @@ import { motion } from "framer-motion";
 const REELS = [
   {
     title: "Ronda do trafego pago #1",
-    thumbnail: "/instagram/post-2.jpg",
-    url: "https://www.instagram.com/reel/DGp64x5JS1u/",
+    thumbnail: "/instagram/rondadotrafego1.png",
+    url: "https://www.instagram.com/p/DVhVLXaDzoI/",
   },
   {
     title: "Ronda do trafego pago #2",
-    thumbnail: "/instagram/post-6.jpg",
-    url: "https://www.instagram.com/reel/DHGeIXYpjIR/",
+    thumbnail: "/instagram/rondadotrafego2.png",
+    url: "https://www.instagram.com/reel/DVEP6NtEY1c/",
   },
 ];
 

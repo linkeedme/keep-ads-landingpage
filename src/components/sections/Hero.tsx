@@ -73,7 +73,7 @@ export function Hero() {
             {[
               { target: 10, prefix: "+", suffix: "M", label: "investidos em anúncios" },
               { target: 60, prefix: "+", suffix: "", label: "empresas aceleradas" },
-              { target: 4, prefix: "+", suffix: " anos", label: "de experiência em performance" },
+              { target: 6, prefix: "+", suffix: " anos", label: "de experiência em performance" },
             ].map((stat, i) => (
               <div key={stat.label} className="flex items-center gap-8 max-sm:flex-col max-sm:gap-5 max-sm:w-full">
                 {i > 0 && <div className="w-px h-12 bg-gradient-to-b from-transparent via-border to-transparent shrink-0 max-sm:w-16 max-sm:h-px max-sm:bg-gradient-to-r" />}

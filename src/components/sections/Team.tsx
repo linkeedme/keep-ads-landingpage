@@ -50,7 +50,7 @@ export function Team() {
               Fundador &amp; Head de Performance
             </p>
             <p className="text-[15px] text-white/65 leading-[1.7] mb-2.5 max-w-[520px] max-lg:mx-auto">
-              Mais de 4 anos imerso em tráfego pago, funis de venda e estratégia digital. Já passou por dezenas de operações locais e e-commerces em Volta Redonda e região.
+              Mais de 6 anos imerso em tráfego pago, funis de venda e estratégia digital. Já passou por dezenas de operações locais e e-commerces em Volta Redonda e região.
             </p>
             <p className="text-[15px] text-white/65 leading-[1.7] mb-5 max-w-[520px] max-lg:mx-auto">
               Resultado de verdade não vem de apertar botões. Vem de cultura de dados, estudo constante e execução disciplinada.

@@ -10,16 +10,19 @@ const PEOPLE = [
     name: "Karol Babadeira",
     handle: "@karolbabadeira",
     src: "/clients/KAROL-BABADEIRA.png",
+    instagram: "https://www.instagram.com/karolbabadeira/",
   },
   {
     name: "Dra. Lise",
     handle: "@dra.lise",
     src: "/clients/DRA-LISE.png",
+    instagram: "https://www.instagram.com/dra.lise/",
   },
   {
     name: "Dra. Lívia Saviolo",
     handle: "@dra.liviasaviolo",
     src: "/clients/DRA-LIVIA-SAVIOLO.png",
+    instagram: "https://www.instagram.com/draliviasaviolo/",
   },
 ];
 
@@ -35,10 +38,13 @@ export function TrustedBy() {
 
         <StaggerContainer className="grid grid-cols-3 gap-6 max-w-[820px] mx-auto max-md:grid-cols-[repeat(3,240px)] max-md:overflow-x-auto max-md:scroll-snap-x max-md:scroll-snap-mandatory max-md:[-webkit-overflow-scrolling:touch] max-md:pb-2 max-sm:gap-4">
           {PEOPLE.map((person) => (
-            <motion.div
+            <motion.a
               key={person.handle}
+              href={person.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={staggerItem}
-              className="group relative rounded-[var(--radius-xl)] overflow-hidden aspect-[3/4] bg-surface-dark shadow-[var(--shadow-card-premium)] border-2 border-transparent transition-all duration-400 ease-[var(--ease-out)] hover:border-brand hover:shadow-[var(--shadow-card-premium-hover),0_0_30px_rgba(29,184,134,0.12)] hover:translate-y-[-6px] max-md:scroll-snap-align-start"
+              className="group relative rounded-[var(--radius-xl)] overflow-hidden aspect-[3/4] bg-surface-dark shadow-[var(--shadow-card-premium)] border-2 border-transparent transition-all duration-400 ease-[var(--ease-out)] hover:border-brand hover:shadow-[var(--shadow-card-premium-hover),0_0_30px_rgba(29,184,134,0.12)] hover:translate-y-[-6px] max-md:scroll-snap-align-start cursor-pointer"
             >
               <Image
                 src={person.src}
@@ -62,13 +68,15 @@ export function TrustedBy() {
                 </p>
               </div>
 
-              {/* Top-right brand accent on hover */}
+              {/* Top-right Instagram icon on hover */}
               <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-brand/90 flex items-center justify-center opacity-0 scale-75 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 shadow-[0_4px_12px_rgba(29,184,134,0.4)]">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none" />
                 </svg>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </StaggerContainer>
       </div>
